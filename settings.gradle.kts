@@ -1,3 +1,3 @@
 
-rootProject.name = "PurpurPluginTemplate"
+rootProject.name = "ChihuyuLib"
 
