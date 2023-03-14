@@ -1,35 +1,14 @@
 package love.chihuyu.chihuyulib.schedular
 
 import love.chihuyu.chihuyulib.Plugin
-import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
 object Schedular {
-    inline fun bukkitRunnable(crossinline block: BukkitRunnable.() -> Unit) = object : BukkitRunnable() {
-        override fun run() = block()
-    }
+    fun Plugin.sync(function: () -> Unit): BukkitTask = server.scheduler.runTask(this, function)
+    fun Plugin.sync(delay: Long, function: () -> Unit): BukkitTask = server.scheduler.runTaskLater(this, function, delay)
+    fun Plugin.sync(period: Long, delay: Long = 0, function: () -> Unit): BukkitTask = server.scheduler.runTaskTimer(this, function, delay, period)
 
-    inline fun Plugin.sync(crossinline block: BukkitRunnable.() -> Unit): BukkitTask {
-        return bukkitRunnable(block).runTask(this)
-    }
-
-    inline fun Plugin.sync(delay: Long, crossinline block: BukkitRunnable.() -> Unit): BukkitTask {
-        return bukkitRunnable(block).runTaskLater(this, delay)
-    }
-
-    inline fun Plugin.sync(delay: Long = 0, period: Long, crossinline block: BukkitRunnable.() -> Unit): BukkitTask {
-        return bukkitRunnable(block).runTaskTimer(this, delay, period)
-    }
-
-    inline fun Plugin.async(crossinline block: BukkitRunnable.() -> Unit): BukkitTask {
-        return bukkitRunnable(block).runTaskAsynchronously(this)
-    }
-
-    inline fun Plugin.async(delay: Long, crossinline block: BukkitRunnable.() -> Unit): BukkitTask {
-        return bukkitRunnable(block).runTaskLaterAsynchronously(this, delay)
-    }
-
-    inline fun Plugin.async(delay: Long = 0, period: Long, crossinline block: BukkitRunnable.() -> Unit): BukkitTask {
-        return bukkitRunnable(block).runTaskTimerAsynchronously(this, delay, period)
-    }
+    fun Plugin.async(function: () -> Unit): BukkitTask = server.scheduler.runTaskAsynchronously(this, function)
+    fun Plugin.async(delay: Long, function: () -> Unit): BukkitTask = server.scheduler.runTaskLaterAsynchronously(this, function, delay)
+    fun Plugin.async(period: Long, delay: Long = 0, function: () -> Unit): BukkitTask = server.scheduler.runTaskTimerAsynchronously(this, function, delay, period)
 }
