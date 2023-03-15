@@ -42,7 +42,11 @@ tasks {
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
 
         from(sourceSets.main.get().resources.srcDirs) {
-            filter(org.apache.tools.ant.filters.ReplaceTokens::class, mapOf("tokens" to mapOf("version" to project.version.toString(), "name" to project.name)))
+            filter(org.apache.tools.ant.filters.ReplaceTokens::class, mapOf("tokens" to mapOf(
+                "version" to project.version.toString(),
+                "name" to project.name,
+                "mainPackage" to "love.chihuyu.${project.name.lowercase()}.${project.name}"
+            )))
             filteringCharset = "UTF-8"
         }
     }
@@ -108,19 +112,19 @@ open class SetupTask : DefaultTask() {
     fun action() {
         val projectDir = project.projectDir
         val srcDir = projectDir.resolve("src/main/kotlin/love/chihuyu/${project.name.lowercase()}").apply(File::mkdirs)
-        srcDir.resolve("Plugin.kt").writeText(
+        srcDir.resolve("${project.name}Plugin.kt").writeText(
             """
                 package love.chihuyu.${project.name.lowercase()}
                 
                 import org.bukkit.plugin.java.JavaPlugin
 
-                class Plugin: JavaPlugin() {
+                class ${project.name}Plugin: JavaPlugin() {
                     companion object {
-                        lateinit var plugin: JavaPlugin
+                        lateinit var ${project.name}Plugin: JavaPlugin
                     }
                 
                     init {
-                        plugin = this
+                        ${project.name}Plugin = this
                     }
                 }
             """.trimIndent()
