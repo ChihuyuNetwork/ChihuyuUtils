@@ -22,8 +22,8 @@ repositories {
 
 dependencies {
     compileOnly("org.purpurmc.purpur:purpur-api:$pluginVersion-R0.1-SNAPSHOT")
-    compileOnly("dev.jorel:commandapi-core:8.7.6")
-    compileOnly("dev.jorel:commandapi-kotlin:8.7.6")
+    implementation("dev.jorel:commandapi-core:8.7.6")
+    implementation("dev.jorel:commandapi-kotlin:8.7.6")
     implementation("org.yaml:snakeyaml:2.0")
     implementation(kotlin("stdlib"))
 }
