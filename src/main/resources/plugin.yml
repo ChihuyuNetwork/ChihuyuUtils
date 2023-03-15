@@ -1,4 +1,4 @@
 name: @name@
-main: love.chihuyu.plugin.Plugin
+main: love.chihuyu.chihuyulib.ChihuyuLibPlugin
 version: @version@
 depend: [ CommandAPI ]
