@@ -11,14 +11,13 @@ plugins {
 }
 
 group = "love.chihuyu"
-version = "0.0.1"
+version = "0.1.0"
 val pluginVersion: String by project.ext
 
 repositories {
     mavenCentral()
     maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://repo.purpurmc.org/snapshots")
-    maven("https://repo.hirosuke.me/repository/maven-public/")
 }
 
 dependencies {
