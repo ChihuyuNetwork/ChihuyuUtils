@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     compileOnly("org.purpurmc.purpur:purpur-api:$pluginVersion-R0.1-SNAPSHOT")
-    implementation("dev.jorel:commandapi-core:8.7.6")
+    implementation("dev.jorel:commandapi-core:8.8.0")
     implementation("dev.jorel:commandapi-kotlin:8.8.0")
     implementation("org.yaml:snakeyaml:2.0")
     implementation(kotlin("stdlib"))
@@ -55,7 +55,7 @@ tasks {
         val loweredProject = project.name.lowercase()
         dependencies {
             include("org.jetbrains.kotlin:kotlin-stdlib")
-            include("dev.jorel:commandapi-core:8.7.6")
+            include("dev.jorel:commandapi-core:8.8.0")
             include("dev.jorel:commandapi-kotlin:8.8.0")
         }
         exclude("org/slf4j/**")
