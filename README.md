@@ -12,6 +12,6 @@ repositories {
 
 ```
 dependencies {
-    compileOnly("love.chihuyu:chihuyulib:<version>")
+    compileOnly("love.chihuyu:chihuyulib:0.1.2")
 }
 ```
