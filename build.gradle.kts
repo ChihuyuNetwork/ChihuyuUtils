@@ -1,17 +1,13 @@
-import dev.s7a.gradle.minecraft.server.tasks.LaunchMinecraftServerTask
-import dev.s7a.gradle.minecraft.server.tasks.LaunchMinecraftServerTask.JarUrl
-
 plugins {
     kotlin("jvm") version "1.8.10"
     id("com.github.johnrengelman.shadow") version "8.1.0"
     id("org.jlleitschuh.gradle.ktlint") version "11.3.1"
-    id("dev.s7a.gradle.minecraft.server") version "2.1.0"
     `maven-publish`
     `kotlin-dsl`
 }
 
 group = "love.chihuyu"
-version = "0.1.2"
+version = "0.1.3"
 val pluginVersion: String by project.ext
 
 repositories {
@@ -53,11 +49,6 @@ tasks {
 
     shadowJar {
         val loweredProject = project.name.lowercase()
-        dependencies {
-            include("org.jetbrains.kotlin:kotlin-stdlib")
-            include("dev.jorel:commandapi-core:8.8.0")
-            include("dev.jorel:commandapi-kotlin:8.8.0")
-        }
         exclude("org/slf4j/**")
         relocate("org.snakeyaml", "love.chihuyu.$loweredProject.lib.org.snakeyaml")
         relocate("kotlin", "love.chihuyu.$loweredProject.lib.kotlin")
@@ -88,22 +79,6 @@ publishing {
 
 kotlin {
     jvmToolchain(18)
-}
-
-task<LaunchMinecraftServerTask>("buildAndLaunchServer") {
-    dependsOn("build")
-    doFirst {
-        copy {
-            from(buildDir.resolve("libs/${project.name}.jar"))
-            into(buildDir.resolve("server/plugins"))
-        }
-    }
-
-    jarUrl.set(JarUrl.Paper(pluginVersion))
-    jarName.set("server.jar")
-    serverDirectory.set(buildDir.resolve("server"))
-    nogui.set(true)
-    agreeEula.set(true)
 }
 
 open class SetupTask : DefaultTask() {
