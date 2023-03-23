@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.bukkit:bukkit:$pluginVersion-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:$pluginVersion-R0.1-SNAPSHOT")
     implementation("dev.jorel:commandapi-core:8.8.0")
     implementation("dev.jorel:commandapi-kotlin:8.8.0")
     implementation("org.yaml:snakeyaml:2.0")
