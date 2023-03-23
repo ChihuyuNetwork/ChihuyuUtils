@@ -7,17 +7,17 @@ plugins {
 }
 
 group = "love.chihuyu"
-version = "0.1.3"
+version = "0.1.4-SNAPSHOT"
 val pluginVersion: String by project.ext
 
 repositories {
     mavenCentral()
     maven("https://repo.codemc.org/repository/maven-public/")
-    maven("https://repo.purpurmc.org/snapshots")
+    maven("https://hub.spigotmc.org/nexus/content/repositories/public/")
 }
 
 dependencies {
-    compileOnly("org.purpurmc.purpur:purpur-api:$pluginVersion-R0.1-SNAPSHOT")
+    compileOnly("org.bukkit:bukkit:$pluginVersion-R0.1-SNAPSHOT")
     implementation("dev.jorel:commandapi-core:8.8.0")
     implementation("dev.jorel:commandapi-kotlin:8.8.0")
     implementation("org.yaml:snakeyaml:2.0")
