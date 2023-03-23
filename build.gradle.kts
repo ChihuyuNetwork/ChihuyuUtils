@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "love.chihuyu"
-version = "0.1.4-SNAPSHOT"
+version = "0.1.4"
 val pluginVersion: String by project.ext
 
 repositories {
