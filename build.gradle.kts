@@ -50,9 +50,9 @@ publishing {
             credentials(PasswordCredentials::class)
             url = uri(
                 if (project.version.toString().endsWith("SNAPSHOT"))
-                    "https://repo.hirosuke.me/repository/maven-snapshots/"
+                    "https://repo.hirosuke.me/snapshots"
                 else
-                    "https://repo.hirosuke.me/repository/maven-releases/"
+                    "https://repo.hirosuke.me/releases"
             )
         }
     }

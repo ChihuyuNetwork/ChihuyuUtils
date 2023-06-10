@@ -18,12 +18,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Prepare gradle.properties
-        run: |
-          mkdir -p $HOME/.gradle
-          echo "repoUsername=${{ secrets.DEPLOY_USERNAME }}" >> $HOME/.gradle/gradle.properties
-          echo "repoPassword=${{ secrets.DEPLOY_PASSWORD }}" >> $HOME/.gradle/gradle.properties
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
       - name: Deploy
         run: |
-          chmod 775 ./gradlew
           ./gradlew clean test publish
+        env:
+          MAVEN_NAME: ${{ secrets.DEPLOY_USERNAME }} # token name
+          MAVEN_SECRET: ${{ secrets.DEPLOY_PASSWORD }} # token secret (password)
