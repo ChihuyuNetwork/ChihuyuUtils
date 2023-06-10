@@ -21,8 +21,8 @@ jobs:
       - name: Prepare gradle.properties
         run: |
           mkdir -p $HOME/.gradle
-          echo "repoUsername=${{ secrets.DIVERPG_DEPLOY_USERNAME }}" >> $HOME/.gradle/gradle.properties
-          echo "repoPassword=${{ secrets.DIVERPG_DEPLOY_PASSWORD }}" >> $HOME/.gradle/gradle.properties
+          echo "repoUsername=${{ secrets.DEPLOY_USERNAME }}" >> $HOME/.gradle/gradle.properties
+          echo "repoPassword=${{ secrets.DEPLOY_PASSWORD }}" >> $HOME/.gradle/gradle.properties
       - name: Deploy
         run: |
           chmod 775 ./gradlew
