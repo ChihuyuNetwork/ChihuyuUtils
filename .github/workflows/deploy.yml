@@ -24,5 +24,5 @@ jobs:
         run: |
           ./gradlew clean test publish
         env:
-          MAVEN_NAME: ${{ secrets.DEPLOY_USERNAME }} # token name
-          MAVEN_SECRET: ${{ secrets.DEPLOY_PASSWORD }} # token secret (password)
+          repoUsername: ${{ secrets.DEPLOY_USERNAME }} # token name
+          repoPassword: ${{ secrets.DEPLOY_PASSWORD }} # token secret (password)
