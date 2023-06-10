@@ -3,7 +3,6 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("org.jlleitschuh.gradle.ktlint") version "11.3.1"
     `maven-publish`
-    `kotlin-dsl`
 }
 
 group = "love.chihuyu"
