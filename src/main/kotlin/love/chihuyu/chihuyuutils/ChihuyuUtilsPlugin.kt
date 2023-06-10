@@ -1,8 +1,8 @@
-package love.chihuyu.chihuyulib
+package love.chihuyu.chihuyuutils
 
 import org.bukkit.plugin.java.JavaPlugin
 
-class ChihuyuLibPlugin: JavaPlugin() {
+class ChihuyuUtilsPlugin: JavaPlugin() {
     companion object {
         lateinit var plugin: JavaPlugin
     }

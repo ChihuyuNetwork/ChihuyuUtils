@@ -1,4 +1,4 @@
-package love.chihuyu.chihuyulib.schedular
+package love.chihuyu.chihuyuutils.schedular
 
 import org.bukkit.plugin.Plugin
 import org.bukkit.scheduler.BukkitRunnable
