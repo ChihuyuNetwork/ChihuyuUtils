@@ -18,9 +18,6 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:$pluginVersion-R0.1-SNAPSHOT")
-    implementation("dev.jorel:commandapi-core:8.8.0")
-    implementation("dev.jorel:commandapi-kotlin:8.8.0")
-    implementation("org.yaml:snakeyaml:2.0")
     implementation(kotlin("stdlib"))
 }
 
@@ -48,11 +45,7 @@ tasks {
     }
 
     shadowJar {
-        val loweredProject = project.name.lowercase()
         exclude("org/slf4j/**")
-        relocate("org.snakeyaml", "love.chihuyu.$loweredProject.lib.org.snakeyaml")
-        relocate("kotlin", "love.chihuyu.$loweredProject.lib.kotlin")
-        relocate("dev.jorel.commandapi", "love.chihuyu.$loweredProject.lib.dev.jorel.commandapi")
     }
 }
 
