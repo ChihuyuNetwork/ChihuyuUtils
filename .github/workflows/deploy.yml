@@ -20,9 +20,11 @@ jobs:
           distribution: 'temurin'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - name: Prepare gradle.properties
+        run: |
+          mkdir -p $HOME/.gradle
+          echo "repoUsername=${{ secrets.DEPLOY_USERNAME }}" >> $HOME/.gradle/gradle.properties
+          echo "repoPassword=${{ secrets.DEPLOY_PASSWORD }}" >> $HOME/.gradle/gradle.properties
       - name: Deploy
         run: |
           ./gradlew clean test publish
-        env:
-          repoUsername: ${{ secrets.DEPLOY_USERNAME }} # token name
-          repoPassword: ${{ secrets.DEPLOY_PASSWORD }} # token secret (password)
