@@ -70,7 +70,7 @@ publishing {
 }
 
 kotlin {
-    jvmToolchain(18)
+    jvmToolchain(17)
 }
 
 open class SetupTask : DefaultTask() {
