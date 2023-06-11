@@ -44,6 +44,7 @@ tasks {
     }
 
     shadowJar {
+        archiveBaseName.set("")
         exclude("org/slf4j/**")
         relocate("kotlin", "love.chihuyu.${project.name.lowercase()}.lib.kotlin")
     }
