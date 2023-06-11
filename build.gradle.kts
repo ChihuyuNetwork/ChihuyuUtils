@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.8.20"
     id("org.jlleitschuh.gradle.ktlint") version "11.3.1"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     `maven-publish`
 }
 
@@ -40,6 +41,11 @@ tasks {
             )))
             filteringCharset = "UTF-8"
         }
+    }
+
+    shadowJar {
+        exclude("org/slf4j/**")
+        relocate("kotlin", "love.chihuyu.${project.name.lowercase()}.lib.kotlin")
     }
 }
 
