@@ -1,9 +1,9 @@
-# ChihuyuUtils
+# chihuyu-utils
 <img src="https://repo.hirosuke.me/api/badge/latest/snapshots/love/chihuyu/ChihuyuUtils?color=40c14a&name=Reposilite"/>
 Original utility library for chihuyu developement group.
 
 ## Usage
-Add below code to `build.gradle`.
+Add below code to `build.gradle.kts`.
 
 ```
 repositories {
@@ -13,6 +13,6 @@ repositories {
 
 ```
 dependencies {
-    compileOnly("love.chihuyu:ChihuyuUtils:1.0.0-SNAPSHOT")
+    compileOnly("love.chihuyu:chihuyu-utils:1.0.0-SNAPSHOT")
 }
 ```
