@@ -1,6 +1,4 @@
-# chihuyu-utils
-<img src="https://repo.hirosuke.me/api/badge/latest/snapshots/love/chihuyu/chihuyu-utils?color=40c14a&name=Reposilite"/>
-
+# chihuyu-snippets
 Original utility library for chihuyu developement group.
 
 ## Usage
