@@ -1,4 +1,4 @@
-package love.chihuyu.chihuyuutils.item
+package love.chihuyu.chihuyusnippets.item
 
 import org.bukkit.Material
 import org.bukkit.event.Listener
