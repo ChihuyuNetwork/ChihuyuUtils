@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.0"
-    id("org.jlleitschuh.gradle.ktlint") version "11.3.1"
+    id("org.jlleitschuh.gradle.ktlint") version "11.5.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     `maven-publish`
 }
