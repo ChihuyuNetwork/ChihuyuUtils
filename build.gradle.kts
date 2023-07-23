@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:$pluginVersion-R0.1-SNAPSHOT")
-    implementation(kotlin("stdlib"))
+    compileOnly(kotlin("stdlib"))
 }
 
 ktlint {
@@ -45,7 +45,6 @@ tasks {
 
     shadowJar {
         exclude("org/slf4j/**")
-        relocate("kotlin", "love.chihuyu.${project.name.lowercase()}.lib.kotlin")
     }
 }
 
