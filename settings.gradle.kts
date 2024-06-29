@@ -1,1 +1,1 @@
-rootProject.name = "chihuyu-snippets"
+rootProject.name = "ChihuyuUtils"

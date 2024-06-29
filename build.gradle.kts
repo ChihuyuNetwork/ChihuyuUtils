@@ -1,8 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "2.0.0"
     id("org.jlleitschuh.gradle.ktlint") version "11.5.0"
     `maven-publish`
-    `kotlin-dsl`
 }
 
 group = "love.chihuyu"
@@ -53,7 +52,12 @@ publishing {
         maven {
             name = "repo"
             credentials(PasswordCredentials::class)
-            url = uri("https://repo.hirosuke.me/snapshots/")
+            url = uri(
+                if (project.version.toString().endsWith("SNAPSHOT"))
+                    "https://repo.chihuyu.love/snapshots/"
+                else
+                    "https://repo.chihuyu.love/releases/"
+            )
         }
     }
 
